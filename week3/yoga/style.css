@@ -1,0 +1,189 @@
+body {
+    font-family: sans-serif, Arial;
+    color: #3F2860;
+    background-color: #EFF4F7;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+header {
+    color: 000000;
+    background-color: #bab0a0;
+    text-align: center;
+    height: 100px;
+    position: relative; /*Relative doesnt actually change the position, it just means that if its referenced elsewhere then, the position that its in here will be the starting point and where it originally was cant be taken up or occupied by other elements*/
+}
+
+#hamburger { /* <---- Remember, when your using an id, you call it with a hashtag before (like here) and when your calling a class you put a dot before the name instead*/
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    color: #7f869a;
+    opacity: 0.5; 
+    font-size: 28px;
+    text-decoration: none;
+}
+
+h1 {
+    padding-top: 16px; /*Remember to learn the diagram of where top/bottom/left/right etc is and learn how to write it in shorthand, majority of this is all written normally tho for readability (scroll down for an ez shorthand lesson)*/
+    line-height: 200%;
+}
+
+nav {
+    text-align: center;
+    padding: 8px;
+    height: 100px;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    padding: 25px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    padding: 5px;
+}
+
+a:hover {          /*Notice how you know that this is a dynamic state for an element and css keyword because of the colon, all state customisation is the same like that*/
+    color: #fff;
+    background-color: #7f869a;
+}
+
+a:visited {
+    color: #003366;
+}
+
+main {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 16px;
+    border: 2px solid #a6a0ba;
+    border-radius: 20px;
+}
+
+section {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: auto;
+    background-color: #e4d8c5;
+}
+
+section::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.services {
+    float: left; /*What float does is pull the class out of the normal top-to-bottom line formation everything is in and sticks it to (in this case) the left side of the container (its a bad way of making columns but just showing what they want)*/
+    width: calc(50% - 15px); /*This just means that the width of content in the services class is half the width of the parent and its then taking off another 15 pixels from that*/
+    height: 400px;
+    background-color: white;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    padding-left: 11px;
+    padding-right: 11px;
+    margin-top: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    margin-left: 15px;
+    border-radius: 20px;
+    box-sizing: border-box;
+}
+
+.services img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+.btn {
+    background-color: #B8195A;
+    color: #fff;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-weight: 700px;
+    font-size: 16px;
+    border: 2px solid #B8195A;
+    text-transform: uppercase;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+p:has(btn) {
+    text-align: center;
+}
+
+footer {
+    background-color: #a59c96;
+    font-size: 0.9em;
+    text-align: center;
+    color: #000000;
+    padding: 16px;
+    margin-top: 32px;
+}
+
+.maillink {
+    color: #000000;
+}
+
+a:hover .maillink {
+    color: #fff;
+}
+
+.active {
+    border: 3px solid #32312f;
+}
+
+@media only screen and (max-width:786px) { /* <------ This is what holds all of the styling for smaller screens */
+    header {
+        height: 18vh;
+    }
+
+    header h1 {
+        display: inline-block;
+        line-height: 50%;
+    }
+    
+    body {
+        font-size: 12px
+    }
+
+    .services {
+        width: 92%;
+        background-color: white;
+        padding: 24px 11px;              /* Shorthand in action right here. Remember: if theres 2 values (2 value syntax/2vs) then the first value represents the top and bottom and the second represents the left and right sides. This is how the other 2 work: 3vc: The first represents the top and the second value represents the left and right sides and the third is the bottom. 4vc: They represent each respectively in this order - top, right, bottom, left. */
+        margin: auto auto 20px 15px;
+        border-radius: 20px;
+        box-sizing: border-box;
+    }
+
+    nav ul li {
+        display: inline-block;
+        width: 70%;
+        padding: 10px;
+        font-size: small;
+    }
+
+    #wrapper { /* <------ This is our container (div) thats wrapped round the header and the nav bar, so this effects those */
+        position: relative;
+    }
+
+    nav {
+        position: absolute; /*This (unlike relative) is putting in a setting to pin the nav into a specific position, that position is what right and top are*/
+        right: 10px;
+        top: 20px;
+    }
+
+}
+

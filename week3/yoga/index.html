@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head> <!--The head is for content that need to load first and quickly, nothing to do with layour or the header and content within it (with expections like the title) wont be seen-->
+        <meta name="author" content="Jake C Ross">
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!--Viewport is just to do with sizing and zoom of the page and the browser looks specifically for "viewport" for instructions on how it should be done. Whats happening here is we are making the width equal the device width and initial scale 1 is setting the page zoom to 100-->
+        <title>Norwich Yoga Studio</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--This is the stylesheet that contains what we need for the hamburger and does not overwrite or effect our style.css or anything-->
+    </head>
+    <body>
+        <div id="wrapper"> <!--Remember that ids can only be used once and classes can be reused as many times as you want-->
+            <header>
+                <h1>Norwich Yoga Studio</h1>
+                <a><i class="fa fa-bars" id="hamburger"></i></a>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>                       <!--Notice too how if somthing is inside of a tag in my code, I will always put it indented forward under what its inside. Keep the indentation like that for readability and avoiding issus of putting the wrong content in a tag-->
+                    <li><a href="Classes.html">Classes</a></li>
+                    <li><a href="Schedule.html">Schedule</a></li>
+                    <li><a href="Contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        <main>
+            <article>
+                <h2>Find Your Inner Strength</h2>
+                <p>Inner strength is the ability to assess a situation, observe your own thoughts and emotions, and respond wisely and compassionately</p>
+            </article>
+            <h3>Benefits</h3>
+            <ul>
+                <li>Improves strength, balance and flexibility.</li>  <!--Remember its written like english ul = unordered list, ol = ordered list, li = list item-->
+                <li>Helps with stress relief.</li>
+                <li>Helps improve sleep.</li>
+                <li>Improves mental health and general wellbeing.</li>
+            </ul>
+            <section>
+                <article class="services">
+                    <h3>Group Lessons</h3>
+                    <p>We offer two-week courses for individuals or small groups in a range of areas including stress reduction, improving your posture and so on</p>
+                    <img src="assets/group_yoga.png">
+                </article>
+                <article class="services">
+                    <h3>One-to-one Lessons</h3>
+                    <p>We offer three week one-to-one lessons where you get complete attention, support and adjustment. This is especially useful if you desire to deepen your practice, as the classes will be tailored specifically to your condition and needs</p>
+                    <img src="assets/yoga0.jpeg">
+                </article>
+            </section>
+            <button class="btn">Join Us</button>
+            <a href="malito:norwichyoga@yoga.com" id="maillink">Send us an email!</a>
+        </main>
+        <footer>
+            <h1>Copyright © 2026 Norwich Yoga Studio</h1>
+        </footer>
+    </body>
+</html>
