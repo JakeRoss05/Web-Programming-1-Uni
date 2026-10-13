@@ -69,10 +69,10 @@ main {
 }
 
 section {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: auto;
+    margin: 10px 0;
+    padding: 0 5px;
     background-color: #e4d8c5;
+    box-sizing: border-box;
 }
 
 section::after {
@@ -83,26 +83,23 @@ section::after {
 
 .services {
     float: left; /*What float does is pull the class out of the normal top-to-bottom line formation everything is in and sticks it to (in this case) the left side of the container (its a bad way of making columns but just showing what they want)*/
-    width: calc(50% - 15px); /*This just means that the width of content in the services class is half the width of the parent and its then taking off another 15 pixels from that*/
-    height: 400px;
+    width: calc(50% - 10px); /*This just means that the width of content in the services class is half the width of the parent and its then taking off another 10 pixels from that*/
+    min-height: 400px;
+    height: auto;
     background-color: white;
-    padding-top: 24px;
-    padding-bottom: 24px;
-    padding-left: 11px;
-    padding-right: 11px;
-    margin-top: auto;
-    margin-right: auto;
-    margin-bottom: 20px;
-    margin-left: 15px;
+    padding: 24px 11px;
+    margin: 0 5px 20px 5px;
     border-radius: 20px;
     box-sizing: border-box;
 }
 
 .services img {
     display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 80%;
+    width: 100%;
+    max-width: 100%;
+    height: 150px;
+    object-fit: contain;
+    margin: 16px auto 0;
 }
 
 .btn {
@@ -160,11 +157,11 @@ a:hover .maillink {
     }
 
     .services {
-        width: 92%;
-        background-color: white;
-        padding: 24px 11px;              /* Shorthand in action right here. Remember: if theres 2 values (2 value syntax/2vs) then the first value represents the top and bottom and the second represents the left and right sides. This is how the other 2 work: 3vc: The first represents the top and the second value represents the left and right sides and the third is the bottom. 4vc: They represent each respectively in this order - top, right, bottom, left. */
-        margin: auto auto 20px 15px;
-        border-radius: 20px;
+        width: 100%;
+        min-height: 0;
+        height: auto;
+        margin: 0 0 20px 0;
+        padding: 24px 11px;
         box-sizing: border-box;
     }
 
