@@ -24,10 +24,10 @@ try {
     console.log('Error occurred while updating the paragraph:', error); 
 }
 
-let newPara = document.createElement('p');
-newPara.textContent = "Hello, This is a new paragraph";
-let mySection = document.querySelector('section');
-mySection.parentNode.insertBefore(newPara, mySection);
+//let newPara = document.createElement('p');
+//newPara.textContent = "Hello, This is a new paragraph";
+//let mySection = document.querySelector('section');
+//mySection.parentNode.insertBefore(newPara, mySection);
 
 let newListItem = document.createElement('li');
 newListItem.textContent = "Helps improve blood circulation (New list item)";
@@ -52,3 +52,14 @@ const hamburger = document.querySelector('#hamburger');
 hamburger.addEventListener('click', function() {
     document.querySelector('.navlist').classList.toggle('shownav');
 });
+
+let myForm = document.querySelector('form');
+let myName = document.querySelector('#name');
+let myEmail = document.querySelector('#email');
+let myMessage = document.querySelector('#message');
+
+myForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    confirmMessage.textContent='Hi ${myName.value}, your message has been recieved, we will contact you at ${myEmail.value}';
+});
+
