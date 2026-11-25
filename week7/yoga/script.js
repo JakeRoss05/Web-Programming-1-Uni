@@ -29,15 +29,14 @@ try {
 //let mySection = document.querySelector('section');
 //mySection.parentNode.insertBefore(newPara, mySection);
 
-let newListItem = document.createElement('li');
-newListItem.textContent = "Helps improve blood circulation (New list item)";
 let benefitslist = document.querySelector('.benefitslist');
-let lastItem = benefitslist.lastElementChild;
-benefitslist.insertBefore(newListItem, lastItem);
-
-benefitslist = document.querySelector('.benefitslist');
-let lastitem = benefitslist.lastElementChild;
-benefitslist.removeChild(benefitslist.lastElementChild);
+if (benefitslist) {
+    let newListItem = document.createElement('li');
+    newListItem.textContent = "Helps improve blood circulation (New list item)";
+    let lastItem = benefitslist.lastElementChild;
+    benefitslist.insertBefore(newListItem, lastItem);
+    benefitslist.removeChild(benefitslist.lastElementChild);
+}
 
 //named function
 //const hamburger = document.querySelector('#hamburger'); 
@@ -49,46 +48,57 @@ benefitslist.removeChild(benefitslist.lastElementChild);
 
 const hamburger = document.querySelector('#hamburger');
 
-hamburger.addEventListener('click', function() {
-    document.querySelector('.navlist').classList.toggle('shownav');
-});
+if (hamburger) {
+    hamburger.addEventListener('click', function() {
+        document.querySelector('.navlist').classList.toggle('shownav');
+    });
+}
 
 let myForm = document.querySelector('form');
 let myName = document.querySelector('#name');
 let myEmail = document.querySelector('#email');
 let myMessage = document.querySelector('#message');
+let confirmMessage = document.querySelector('.confirmMessage');
 
-myForm.addEventListener('submit', (e)=>{
-    e.preventDefault();
-    confirmMessage.textContent='Hi ${myName.value}, your message has been recieved, we will contact you at ${myEmail.value}';
-});
+if (myForm) {
+    myForm.addEventListener('submit', (e)=>{
+        e.preventDefault();
+        confirmMessage.textContent = `Hi ${myName.value}, your message has been recieved, we will contact you at ${myEmail.value}`;
+    });
+}
 
 const schedule = document.querySelector('#schedule');
 
 const localJsonFile = "data.JSON";
 
-document.addEventListener('DOMContentLoaded', () => {
+if (schedule) {
     fetch(localJsonFile)
-    .then(response => response.json())
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`Could not load ${localJsonFile}: ${response.status}`);
+        }
+        return response.json();
+    })
     .then(responseData =>{
-        schedule.innerHTML = ""
-        responseData.forEach(yogaClass => {
-            const card = document.createElement("div");
-            card.classList.add("class-card");
-
-            card.innerHTML = `
-                <img src="${yogaClass.imageURL}" alt="${yogaClass.alt}">
-                <h3>${yogaClass.style}</h3>
-                <p><strong>Time:</strong> ${yogaClass.time}</p>
-                <p><strong>Focus:</strong> ${yogaClass.focus}</p>
-                <p><strong>Benefits:</strong> ${yogaClass.benefits}</p>
-                <p><strong>Level:</strong> ${yogaClass.level}</p>
-            `;
-
-            schedule.appendChild(card);
-        });
+        schedule.innerHTML = "";
+        for (const item of responseData){
+            const scheduleArticle = document.createElement('article');
+            const imageElement = document.createElement('img');
+            imageElement.src = item.imageURL;
+            imageElement.alt = item.alt;
+            scheduleArticle.appendChild(imageElement);
+            scheduleArticle.insertAdjacentHTML(
+                'beforeend',
+                `<h3>${item.style}</h3>
+                <p>Time: ${item.time}</p>
+                <p>Focus: ${item.focus}</p>
+                <p>Benefits: ${item.benefits}</p>
+                <p>Level: ${item.level}</p>`
+            );
+            schedule.appendChild(scheduleArticle);
+        }
     })
     .catch(error => {
         console.error("Error loading the schedule:", error);
     });
-});
+}
